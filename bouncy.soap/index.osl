@@ -6,7 +6,6 @@ if icnData == null (
   loop icns.len * 1 (
     icnData = icnData.append([random(frame.left,frame.right),random(frame.bottom + 50,frame.top - 20),random(-10,10),random(-30,30),10,random(.95,1.05),random(-360,360),random(1,5)])
   )
-  data.page.icnData = icnData
   if [window.x, window.y] != data.page.last_pos (
     local x_cha = window.x - data.page.last_pos[1]
     local y_cha = window.y - data.page.last_pos[2]
@@ -15,8 +14,10 @@ if icnData == null (
       local par @= icnData[pari]
       par[1] -= x_cha
       par[2] -= y_cha
+      icnData[pari] @= par
     )
   )
+  data.page.icnData = icnData
 )
 for pari icnData.len (
   local par @= icnData[pari]
