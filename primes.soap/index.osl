@@ -1,0 +1,16 @@
+if onload (
+  data.start_num = 0
+)
+
+data.start_num += round(scroll.y.velocity) * 10
+data.start_num = max(start_num, 0)
+local num = data.start_num
+local i = 0
+loc 2 2 10 -20
+while i < 20 (
+  num ++
+  if num.isPrime() (
+    i ++
+    text num ++ "\n" 10
+  )
+)
